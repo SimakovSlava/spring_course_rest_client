@@ -32,14 +32,23 @@ public class App {
 //        System.out.println(employeeById);
 
         /**
-         * Получение и вывод в консоль конкретного работника.
+         * Добавление нового работника или обновление данных.
+         */
+//        AnnotationConfigApplicationContext context =
+//                new AnnotationConfigApplicationContext(MyConfig.class);
+//        Communication communication =
+//                context.getBean("communication", Communication.class);
+//        Employee employee = new Employee("Slava", "Savinov", "Sales", 800);
+//        employee.setId(10);
+//        communication.saveOrUpdateEmployee(employee);
+
+        /**
+         * Удаление работника из базы данных.
          */
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(MyConfig.class);
         Communication communication =
                 context.getBean("communication", Communication.class);
-        Employee employee = new Employee("Slava", "Savinov", "Sales", 800);
-        employee.setId(10);
-        communication.saveOrUpdateEmployee(employee);
+        communication.deleteEmployee(10);
     }
 }
