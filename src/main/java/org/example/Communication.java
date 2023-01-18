@@ -18,22 +18,23 @@ public class Communication {
 
     private final String URL = "http://localhost:8080/spring_course_rest/api/employees";
 
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() {
         ResponseEntity<List<Employee>> responseEntity =
-                restTemplate.exchange(URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<Employee>>() {});
+                restTemplate.exchange(URL, HttpMethod.GET, null, new ParameterizedTypeReference<List<Employee>>() {
+                });
         return responseEntity.getBody();
     }
 
-    public Employee getEmployee(int id){
-
-        return null;
+    public Employee getEmployee(int id) {
+        Employee employee = restTemplate.getForObject(URL + "/" + id, Employee.class);
+        return employee;
     }
 
-    public void saveOrUpdateEmployee(Employee employee){
+    public void saveOrUpdateEmployee(Employee employee) {
 
     }
 
-    public void deleteEmployee(int id){
+    public void deleteEmployee(int id) {
 
     }
 }
